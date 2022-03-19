@@ -7,7 +7,7 @@
   font-size: 24px;
   padding: 25px 20px 31px 21px;
   display: inline-block;
-  max-width: 237px;
+  width: 237px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
