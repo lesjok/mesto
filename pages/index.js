@@ -14,13 +14,10 @@ function openPopup() {
 
 function closePopup() {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keyup', onDocumentKeyUp);
 }
 
 function onDocumentKeyUp(event) {
-  if (event.key === 'Escape') {
-    closePopup();
-  }
+  event.key === 'Escape' || event.key === 'Enter' ? closePopup() : 'false'
 }
 
 editButton.addEventListener('click', openPopup);
