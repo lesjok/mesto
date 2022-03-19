@@ -1,4 +1,4 @@
-.galley__like {
+.gallery__like {
   background-image: url('../../../images/heart.svg');
   cursor: pointer;
   width: 22px;
@@ -10,6 +10,6 @@
   position: absolute;
   transition: 0.3s;
 }
-.galley__like:hover {
+.gallery__like:hover {
   opacity: 0.6;
 }

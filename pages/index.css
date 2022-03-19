@@ -13,7 +13,7 @@
 @import url('../blocks/gallery/gallery.css');
 @import url('../blocks/gallery/__img/gallery__img.css');
 @import url('../blocks/gallery/__name/gallery__name.css');
-@import url('../blocks/gallery/__like/galley__like.css');
+@import url('../blocks/gallery/__like/gallery__like.css');
 @import url('../blocks/gallery/__item/gallery__item.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
