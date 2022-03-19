@@ -1,0 +1,13 @@
+.profile__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+@media screen and (max-width: 847px) {
+  .profile__title-group {
+    text-align: center;
+    margin-top: 26px;
+    margin-bottom: 36px;
+  }
+}

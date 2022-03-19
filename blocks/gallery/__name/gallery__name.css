@@ -1,0 +1,15 @@
+.gallery__name {
+  color: #000;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-weight: 900;
+  margin: 0;
+  font-size: 24px;
+  padding: 25px 20px 31px 21px;
+  display: inline-block;
+  width: 237px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}

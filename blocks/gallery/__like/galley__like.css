@@ -1,0 +1,15 @@
+.galley__like {
+  background-image: url('../../../images/heart.svg');
+  cursor: pointer;
+  width: 22px;
+  height: 19px;
+  background-color: #fff;
+  border: none;
+  bottom: 10%;
+  right: 20px;
+  position: absolute;
+  transition: 0.3s;
+}
+.galley__like:hover {
+  opacity: 0.6;
+}

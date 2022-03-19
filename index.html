@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title lang="en">Mesto</title>
+</head>
+<body class="root">
+  <div class="container">
+    <header class="header">
+      <img src="images/logo.svg" alt="лого" class="logo">
+    </header>
+    <main>
+      <div class="profile">
+      <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar">
+      <div class="profile__title-group">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button"></button>
+        <h6 class="profile__subtitle">Исследователь океана</h6>       
+      </div>     
+      <button class="profile__add-button"></button>
+      </div>
+ 
+      <ul class="gallery">
+        <li class="gallery__item">
+          <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="gallery__img">
+          <p class="gallery__name">Карачаевск</p>
+          <button class="galley__like">
+        </li>
+        <li class="gallery__item">
+          <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__img">
+          <p class="gallery__name">Гора Эльбрус</p>
+          <button class="galley__like">
+        </li>
+        <li class="gallery__item">
+          <img src="./images/dombai.jpg" alt="Домбай" class="gallery__img">
+          <p class="gallery__name">Домбай</p>
+          <button class="galley__like">
+        </li>
+        <li class="gallery__item">
+          <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__img">
+          <p class="gallery__name">Гора Эльбрус</p>
+          <button class="galley__like">
+        </li>
+        <li class="gallery__item">
+          <img src="./images/dombai.jpg" alt="Домбай" class="gallery__img">
+          <p class="gallery__name">Домбай</p>
+          <button class="galley__like">
+        </li>
+        <li class="gallery__item">
+          <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="gallery__img">
+          <p class="gallery__name">Карачаево-Черкессия</p>
+          <button class="galley__like">
+        </li>
+      </ul>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p> 
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__text">Редактировать профиль</p>
+        <form name="profile" class="popup__form">
+          <input type="text" class="popup__input" value="Жак-Ив Кусто" id="input__name">
+          <input type="text" class="popup__input" value="Исследователь океана" id="input__about">
+          <button class="popup__button-save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<script src="./pages/index.js"></script>
+</body>
+</html>
