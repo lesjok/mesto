@@ -1,4 +1,4 @@
-.gallery__like {
+.gallery-item__like {
   background-image: url('../../../images/heart.svg');
   cursor: pointer;
   min-width: 22px;
@@ -7,6 +7,6 @@
   border: none;
   transition: 0.3s;
 }
-.gallery__like:hover {
+.gallery-item__like:hover {
   opacity: 0.6;
 }

@@ -1,8 +1,0 @@
-.header__logo_mobile {
-  display: none;
-}
-@media screen and (max-width: 320px) {
-  .header__logo_mobile {
-  display: block;
-}
-}

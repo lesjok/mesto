@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  max-width: 336px;
+  max-width: 384px;
 }
 @media screen and (max-width: 879px) {
   .profile__title-group {

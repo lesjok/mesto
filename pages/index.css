@@ -3,8 +3,7 @@
 @import url('../blocks/root/root.css');
 @import url('../blocks/container/container.css');
 @import url('../blocks/header/header.css');
-@import url('../blocks/header/__logo/_desktop/header__logo_desktop.css');
-@import url('../blocks/header/__logo/_mobile/header__logo_mobile.css');
+@import url('../blocks/header/__logo/header__logo.css');
 @import url('../blocks/profile/profile.css');
 @import url('../blocks/profile/__avatar/profile__avatar.css');
 @import url('../blocks/profile/__title/profile__title.css');
@@ -13,11 +12,11 @@
 @import url('../blocks/profile/__add-button/profile__add-button.css');
 @import url('../blocks/profile/__title-group/profile__title-group.css');
 @import url('../blocks/gallery/gallery.css');
-@import url('../blocks/gallery/__img/gallery__img.css');
-@import url('../blocks/gallery/__text/gallery__text.css');
-@import url('../blocks/gallery/__name/gallery__name.css');
-@import url('../blocks/gallery/__like/gallery__like.css');
 @import url('../blocks/gallery-item/gallery-item.css');
+@import url('../blocks/gallery-item/__img/gallery-item__img.css');
+@import url('../blocks/gallery-item/__text/gallery-item__text.css');
+@import url('../blocks/gallery-item/__name/gallery-item__name.css');
+@import url('../blocks/gallery-item/__like/gallery-item__like.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 @import url('../blocks/popup/popup.css');

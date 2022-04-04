@@ -22,7 +22,6 @@
   .gallery {
     display: flex;
     flex-direction: column;
-    padding-left: 19px;
-    padding-right: 19px;
+    align-items: center;
   }
 }
