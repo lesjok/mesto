@@ -18,7 +18,7 @@
 .popup__close-button:after {
   transform: rotate(-45deg);
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 372px) {
   .popup__close-button:before,
   .popup__close-button:after {
     width: 3px;
