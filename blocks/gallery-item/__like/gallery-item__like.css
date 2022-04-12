@@ -3,10 +3,13 @@
   cursor: pointer;
   min-width: 22px;
   height: 19px;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   transition: 0.3s;
 }
 .gallery-item__like:hover {
   opacity: 0.6;
+}
+.gallery-item__like.gallery-item__like-active {
+  background-image: url('../../../images/heart-active.svg');
 }
