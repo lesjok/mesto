@@ -81,8 +81,8 @@ gallery.append(...elements);
 
 
 //добавление карточки
-const popupInputTypeName = document.querySelector('.input-add-item__name');
-const popupInputTypeLink = document.querySelector('.input-add-item__link');
+const popupInputTypeName = document.querySelector('.popup__input-add-item_type_name');
+const popupInputTypeLink = document.querySelector('.popup__input-add-item_type_link');
 const addCardForm = document.querySelector('.popup__form_add-card');
 const addCard = function (evt) {
   evt.preventDefault();
