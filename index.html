@@ -19,10 +19,10 @@
         <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar">
         <div class="profile__title-group">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+          <button class="profile__button profile__button_type_edit" type="button" aria-label="Редактировать профиль"></button>
           <p class="profile__subtitle">Исследователь океана</p>       
         </div>     
-        <button class="profile__add-button" type="button" aria-label="Добавить фотографии"></button>
+        <button class="profile__button profile__button_type_add" type="button" aria-label="Добавить фотографии"></button>
       </section>
       
       <div>
@@ -49,22 +49,26 @@
       <div class="popup__container">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__text">Редактировать профиль</h2>
-        <form name="profile" class="popup__form popup__form_edit-profile">
-          <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто" name="name">
-          <input type="text" class="popup__input popup__input_type_about" value="Исследователь океана" name="about">
-          <button class="popup__button popup__save-button" type="submit">Сохранить</button>
+        <form name="profile" class="form popup__form_edit-profile" novalidate>
+          <input type="text" minlength="2" maxlength="40" class="popup__style popup__input_type_name" id="name-input" name="name" value="" required>
+          <span class="popup__error name-input-error"></span>
+          <input type="text" minlength="2" maxlength="200" class="popup__style popup__input_type_about" id="about-input" name="about" value="" required>
+          <span class="popup__error about-input-error"></span>
+          <button class="popup__submit popup__save-button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup popup-add-item">
+    <div class="popup popup-add-card">
       <div class="popup__container">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__text">Новое место</h2>
-        <form name="profile" class="popup__form popup__form_add-card">
-          <input type="text" class="popup__input popup__input_type_name popup__input-add-item popup__input-add-item_type_name" value="" name="name" placeholder="Название" required>
-          <input type="url" class="popup__input popup__input_type_link popup__input-add-item popup__input-add-item_type_link" value="" name="link" placeholder="Ссылка на картинку" required>
-          <button class="popup__button popup__create-button" type="submit">Создать</button>
+        <form name="profile" class="form popup__form_add-card" novalidate>
+          <input type="text" class="popup__style popup__input_type_name popup__input-add-item popup__input-add-item_type_name" id="mesto-input" value="" name="name" placeholder="Название" required>
+          <span class="popup__error mesto-input-error"></span>
+          <input type="url" class="popup__style popup__input_type_link popup__input-add-item popup__input-add-item_type_link" id="link-input" value="" name="link" placeholder="Ссылка на картинку" required>
+          <span class="popup__error link-input-error"></span>
+          <button class="popup__submit popup__create-button" type="submit">Создать</button>
         </form>
       </div>
     </div>
@@ -72,10 +76,11 @@
       <div class="popup-photo__container">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Фото" class="popup-photo__big-photo">
-        <p class="popup-photo__text">Я</p>
+        <p class="popup-photo__text"></p>
       </div>
     </div>
   </div>
 <script src="./pages/index.js"></script>
+<script src="./pages/validate.js"></script>
 </body>
 </html>

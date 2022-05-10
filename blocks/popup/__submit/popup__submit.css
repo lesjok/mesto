@@ -1,4 +1,4 @@
-.popup__button {
+.popup__submit {
   margin-top: 18px;
   background-color: #000000;
   color: #fff;
@@ -13,13 +13,20 @@
   transition: 0.3s;
   box-sizing: border-box;
 }
-.popup__button:hover {
+.popup__submit:hover {
   opacity: 0.8;
 }
 @media screen and (max-width: 574px) {
-  .popup__button {
+  .popup__submit {
     padding-right: 82px;
     padding-left: 82px;
     font-size: 14px;
   }
+}
+.popup__submit.popup__submit_inactive {
+  opacity: 0.2;
+}
+.popup__submit.popup__submit_inactive:hover {
+  opacity: 0.2;
+  cursor: default;
 }
