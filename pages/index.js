@@ -85,9 +85,9 @@ gallery.append(...elements);
 
 
 //добавление карточки
-const popupInputTypeName = document.querySelector('.popup__input-add-item_type_name');
-const popupInputTypeLink = document.querySelector('.popup__input-add-item_type_link');
-const addCardForm = document.querySelector('.popup__form_add-card');
+const popupInputTypeName = document.querySelector('.popup__style-add-item_type_name');
+const popupInputTypeLink = document.querySelector('.popup__style-add-item_type_link');
+const addCardForm = document.querySelector('.form__add-card');
 const addCard = function (evt) {
   evt.preventDefault();
   const card = {};
@@ -116,7 +116,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const profileFormModalWindow = document.querySelector('.popup-edit-profile');
 const editButton = document.querySelector('.profile__button_type_edit');
-const nameInput = document.querySelector('.popup__input_type_name');
+const nameInput = document.querySelector('.popup__style_type_name');
 const aboutInput = document.querySelector('.popup__input_type_about');
 function openPopupEditProfile() {
   openPopup(profileFormModalWindow);

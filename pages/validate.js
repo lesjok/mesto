@@ -1,13 +1,20 @@
+//показать ошибку
 const showInputError = (formElement, inputElement, errorMessage, params) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(params.inputErrorClass);
   errorElement.textContent = errorMessage;
 };
+
+
+//скрыть ошибку
 const hideInputError = (formElement, inputElement, params) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(params.inputErrorClass);
-  errorElement.textContent = "";
+  errorElement.textContent = '';
 };
+
+
+//валидация
 const isValid = (formElement, inputElement, params) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, params);
@@ -15,12 +22,17 @@ const isValid = (formElement, inputElement, params) => {
     hideInputError(formElement, inputElement, params);
   }
 };
+
+
+//невалидный инпут
 const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
     return !input.validity.valid; 
   })
 }
 
+
+//блокировка кнопки 
 const toggleButtonState = (inputList, buttonElement, params) => {
   if(hasInvalidInput(inputList)) {
     buttonElement.classList.add(params.inactiveButtonClass);
@@ -32,6 +44,7 @@ const toggleButtonState = (inputList, buttonElement, params) => {
 }
 
 
+//добавление события на инпут
 const setEventListeners = (formElement, params) => {
   const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
   const buttonElement = formElement.querySelector(params.submitButtonSelector);
@@ -44,15 +57,16 @@ const setEventListeners = (formElement, params) => {
   });
 };
 
+
+//сброс данных формы
 const handleSubmit = (currentForm) =>{
   currentForm.reset();
 }
 
 
-
+//добавление события на форму
 const enableValidation = (params) => {
   const formList = Array.from(document.querySelectorAll(params.formSelector));
-
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
