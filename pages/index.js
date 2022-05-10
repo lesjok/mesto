@@ -94,7 +94,8 @@ const addCard = function (evt) {
   card.name = popupInputTypeName.value;
   card.link = popupInputTypeLink.value;
   gallery.prepend(createCards(card));
-  closePopup(evt.target);
+  const closePopupParentElement = evt.target.parentElement.parentElement;
+  closePopup(closePopupParentElement);
   addCardForm.reset();
 }
 addCardForm.addEventListener('submit', addCard);
@@ -103,7 +104,6 @@ addCardForm.addEventListener('submit', addCard);
 //попап добавления карточки
 const addButton = document.querySelector('.profile__button_type_add');
 const cardFormModalWindow= document.querySelector('.popup-add-card');
-const submitButtons = document.querySelectorAll('.popup__submit');
 function openPopupAddCard() {
   openPopup(cardFormModalWindow);
   document.addEventListener('keyup', onDocumentKeyUp);
