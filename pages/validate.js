@@ -47,16 +47,12 @@ const inactivateButton = (buttonElement, params) => {
 //добавление события на инпут
 const setEventListeners = (formElement, params) => {
   const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
-  const buttonElements = formElement.querySelectorAll(params.submitButtonSelector);
-  buttonElements.forEach(buttonElement => {
-     toggleButtonState(inputList, buttonElement, params);
-  })
+  const buttonElement = formElement.querySelector(params.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, params);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       isValid(formElement, inputElement, params);
-      buttonElements.forEach(buttonElement => {
-        toggleButtonState(inputList, buttonElement, params);
-      })
+      toggleButtonState(inputList, buttonElement, params);
     });
   });
 };
@@ -68,14 +64,12 @@ const handleSubmit = (currentForm) =>{
 
 //добавление события на форму
 const enableValidation = (params) => {
-  const formList = Array.from(document.querySelectorAll(params.formSelector));
-  const buttonElements = formElement.querySelectorAll(params.submitButtonSelector);
+  const formList = Array.from(document.querySelectorAll(params.formSelector)); 
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      buttonElements.forEach((buttonElement) => {
-        inactivateButton(buttonElement, params);
-      })  
+      const buttonElement = formElement.querySelector(params.submitButtonSelector);
+      inactivateButton(buttonElement, params);
     });
     setEventListeners(formElement, params);  
     handleSubmit(formElement);
