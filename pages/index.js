@@ -7,6 +7,10 @@ const popupImgText = document.querySelector('.popup-photo__text');
 const closePopup = (modalWindow) => {
   modalWindow.classList.remove('popup_opened');
   document.removeEventListener('keydown', onDocumentKeyDown);
+  if (modalWindow.classList.contains('popup-edit-profile')) {
+    profileTitle.textContent = nameInput.value;
+    profileSubtitle.textContent = aboutInput.value;
+  } 
 }
 const closeButtons = document.querySelectorAll('.popup__close-button');
 closeButtons.forEach(closeButton => {
@@ -19,6 +23,7 @@ closeButtons.forEach(closeButton => {
 //открытие попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', onDocumentKeyDown);
 }
 
 //создание карточек
@@ -76,7 +81,6 @@ const addButton = document.querySelector('.profile__button_type_add');
 const cardFormModalWindow= document.querySelector('.popup-add-card');
 function openPopupAddCard() {
   openPopup(cardFormModalWindow);
-  document.addEventListener('keydown', onDocumentKeyDown);
 }
 addButton.addEventListener('click', openPopupAddCard);
 
@@ -89,7 +93,8 @@ const nameInput = document.querySelector('.popup__style_type_name');
 const aboutInput = document.querySelector('.popup__style_type_about');
 function openPopupEditProfile() {
   openPopup(profileFormModalWindow);
-  document.addEventListener('keyup', onDocumentKeyDown);
+  nameInput.value = profileTitle.textContent;
+  aboutInput.value = profileSubtitle.textContent;
 }
 editButton.addEventListener('click', openPopupEditProfile);
 
@@ -116,8 +121,6 @@ profileFormModalWindow.addEventListener('click', handleClickOverlay);
 const formElement = document.querySelector('.form');
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
-    profileTitle.textContent = nameInput.value;
-    profileSubtitle.textContent = aboutInput.value;
     const parentNodeOfButton = evt.target.closest('.popup');
     closePopup(parentNodeOfButton);
 }
