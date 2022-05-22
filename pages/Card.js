@@ -1,3 +1,5 @@
+import openPopup from './index.js';
+import {imageModalWindow} from './index.js';
 class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -17,6 +19,7 @@ class Card {
     this._setEventListeners()
     this._element.querySelector('.gallery-item__name').textContent = this._name;
     this._element.querySelector('.gallery-item__img').src = this._link;
+    this._element.querySelector('.gallery-item__img').alt = this._name;
     return this._element;
   }
   _setEventListeners() {
@@ -34,7 +37,7 @@ class Card {
     this._element.querySelector('.gallery-item__like').classList.toggle('gallery-item__like-active');
   }
   _deleteCard() {
-    this._element.closest('.gallery-item').remove();
+    this._element.remove();
   }
   _zoomImage() {
     openPopup(imageModalWindow);
