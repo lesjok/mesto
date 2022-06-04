@@ -1,9 +1,8 @@
-import openPopup from './index.js';
-import {imageModalWindow} from './index.js';
-class Card {
-  constructor(data, cardSelector) {
+export class Card {
+  constructor({data, handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._cardSelector = cardSelector;
   }
   _getTemplate() {
@@ -13,13 +12,14 @@ class Card {
     .querySelector('.gallery-item')
     .cloneNode(true);
     return cardElement;
-}
+  }
   generateCard() {
-    this._element = this._getTemplate();
-    this._setEventListeners()
+    this._element = this._getTemplate();   
+    this._cardImage = this._element.querySelector('.gallery-item__img');
     this._element.querySelector('.gallery-item__name').textContent = this._name;
-    this._element.querySelector('.gallery-item__img').src = this._link;
-    this._element.querySelector('.gallery-item__img').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._setEventListeners();
     return this._element;
   }
   _setEventListeners() {
@@ -29,8 +29,8 @@ class Card {
     this._element.querySelector('.gallery-item__trash').addEventListener('click', () => {
     this._deleteCard();
   })
-    this._element.querySelector('.gallery-item__img').addEventListener('click', () => {
-    this._zoomImage();
+    this._cardImage.addEventListener('click', () => {
+    this._handleCardClick(this._name, this._link);
   })
   }
   _likeClick() {  
@@ -39,11 +39,4 @@ class Card {
   _deleteCard() {
     this._element.remove();
   }
-  _zoomImage() {
-    openPopup(imageModalWindow);
-    document.querySelector('.popup-photo__big-photo').src = this._link;
-    document.querySelector('.popup-photo__text').textContent = this._name;
-    document.querySelector('.popup-photo__big-photo').alt = this._name;
-  }
 }
-export {Card}
