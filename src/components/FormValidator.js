@@ -58,4 +58,10 @@ export class FormValidator {
   enableValidation = () => {
     this._setEventListeners();
   };
+  resetErrors() {
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._input));
+    this._inputList.forEach(input => {
+      this._hideInputError(input);
+    })
+  }
 }
