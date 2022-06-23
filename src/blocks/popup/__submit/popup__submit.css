@@ -12,6 +12,7 @@
   border-radius: 2px;
   transition: 0.3s;
   box-sizing: border-box;
+  width: 100%;
 }
 .popup__submit:hover {
   opacity: 0.8;

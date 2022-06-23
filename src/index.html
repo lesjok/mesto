@@ -15,7 +15,9 @@
     
     <main>
       <section class="profile">
-        <img src="<%=require('./images/avatar.jpg')%>" alt="аватар" class="profile__avatar">
+        <div class="profile__avatar">
+          <img src="" alt="аватар" class="profile__image">
+        </div>   
         <div class="profile__title-group">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__button profile__button_type_edit" type="button" aria-label="Редактировать профиль"></button>
@@ -32,7 +34,9 @@
               <img src="<%=require('./images/trash.svg')%>" alt="корзина" class="gallery-item__trash">
               <div class="gallery-item__text">
                 <h2 class="gallery-item__name"></h2>
-                <button class="gallery-item__like" type="button" aria-label="Нравится"></button>
+                <button class="gallery-item__like" type="button" aria-label="Нравится">
+                  <span class="gallery-item__count-of-likes"></span>
+                </button>  
               </div>
             </li>
           </template>
@@ -78,6 +82,24 @@
         <p class="popup-photo__text"></p>
       </div>
     </div>
+    <div class="popup popup-delete">
+      <div class="popup__container">
+        <h2 class="popup__text">Вы уверены?</h2>   
+        <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+        <button class="popup__submit popup__create-button" type="submit">Да</button>
+      </div>
+    </div>
+        <div class="popup popup-avatar">
+          <div class="popup__container">
+            <h2 class="popup__text">Обновить аватар</h2>
+            <form class="form" novalidate name="avatar">
+              <input type="text" class="popup__style" id="avatar-input" name="avatar"
+                value="" placeholder="ссылка на картинку" required>
+            </form>
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+            <button class="popup__submit popup__add-avatar-button" type="submit">Сохранить</button>
+          </div>
+        </div>
   </div>
 </body>
 </html>
