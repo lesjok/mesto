@@ -34,17 +34,17 @@ const card = new Card(data, actualUserId, {handleCardClick,
         card.openLikesInfo(data.likes);
       })
       .catch(err => {
-          console.log(`Ошибка при удалении лайка: ${err}`)
+        console.log(`Ошибка при удалении лайка: ${err}`)
       });
     }
     else {
-        api.setLike(data)
-          .then((data) => {
-            card.openLikesInfo(data.likes);
-        })
-          .catch(err => {
-          console.log(`Ошибка лайка: ${err}`)
-        });
+      api.setLike(data)
+        .then((data) => {
+          card.openLikesInfo(data.likes);
+      })
+        .catch(err => {
+        console.log(`Ошибка лайка: ${err}`)
+      });
       }
   },
   handleDeleteCard: (card) => { //удаление карточки
@@ -68,13 +68,13 @@ const popupDeleteCard = new PopupWithConfirm('.popup-delete');
 popupDeleteCard.setEventListeners();
 
 const placeForm = new PopupWithForm({ //попап добавления карточки
-  handleFormSubmit: (data) => {
-    placeForm.close();
+  handleFormSubmit: (data) => {  
     placeForm.loading(true);
     api.addCard(data)
     .then((res) => {
       const newCard = createCard(res);
       addCard.addItem(newCard);
+      placeForm.close();
     })
     .catch(err => {
       console.log(`Ошибка при добавлении карточки: ${err}`)
@@ -116,12 +116,12 @@ const userInfo = new UserInfo({  //данные профиля
 })
 
 const profileForm = new PopupWithForm({ //попап изменения информации о профиле
-  handleFormSubmit: (data) => {  
-    profileForm.close();
+  handleFormSubmit: (data) => {    
     profileForm.loading(true);
     api.editUserInfo(data)
     .then((res) => {
-userInfo.setUserInfo(res)
+      userInfo.setUserInfo(res);
+      profileForm.close();
     })
     .catch(err => {
         console.log(`Ошибка в профиле пользователя: ${err}`);
