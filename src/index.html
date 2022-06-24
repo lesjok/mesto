@@ -16,7 +16,7 @@
     <main>
       <section class="profile">
         <div class="profile__avatar">
-          <img src="" alt="аватар" class="profile__image">
+          <img src="/" alt="аватар" class="profile__image">
         </div>   
         <div class="profile__title-group">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -92,12 +92,13 @@
         <div class="popup popup-avatar">
           <div class="popup__container">
             <h2 class="popup__text">Обновить аватар</h2>
-            <form class="form" novalidate name="avatar">
-              <input type="text" class="popup__style" id="avatar-input" name="avatar"
-                value="" placeholder="ссылка на картинку" required>
+            <form class="form popup-avatar__form" novalidate name="avatar">
+              <input type="url" class="popup__style" id="avatar" name="avatar"
+                value="" required>
+              <span class="popup__error avatar-error"></span>
+              <button class="popup__submit popup__add-avatar-button" type="submit">Сохранить</button>
             </form>
-            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-            <button class="popup__submit popup__add-avatar-button" type="submit">Сохранить</button>
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>      
           </div>
         </div>
   </div>

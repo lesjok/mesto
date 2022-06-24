@@ -55,14 +55,14 @@ export class Api {
     })
     .then(this._errorHandler)
   }
-    removelike(data) {
+  removeLike(data) {
     return fetch(`${this._url}/cards/${data._id}/likes`, {
       method: 'DELETE',
       headers: this._headers,
     })
     .then(this._errorHandler)
   }
-    changeUserAvatar(item) {
+  changeUserAvatar(item) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,

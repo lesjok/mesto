@@ -36,6 +36,7 @@ export const popupInputTypeLink = document.querySelector('.popup-add-card__input
 export const addCardForm = document.querySelector('.popup-add-card__form');
 export const addButton = document.querySelector('.profile__button_type_add');
 export const editProfileForm = document.querySelector('.popup-edit-profile__form');
+export const popupAvatarForm = document.querySelector('.popup-avatar__form');
 export const closeButtons = document.querySelectorAll('.popup__close-button');
 export const profileTitle = document.querySelector('.profile__title');
 export const profileSubtitle = document.querySelector('.profile__subtitle');

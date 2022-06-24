@@ -7,13 +7,15 @@ import {PopupWithImage} from '../components/PopupWithImage.js';
 import {Card} from '../components/Card.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {PopupWithConfirm} from '../components/PopupWithConfirm.js';
-import {selectorList, addCardForm, addButton, editProfileForm, editButton, nameInput, aboutInput, popupAvatarButton} from '../utils/constants.js';
+import {selectorList, addCardForm, addButton, editProfileForm, editButton, nameInput, aboutInput, popupAvatarButton, popupAvatarForm} from '../utils/constants.js';
 import {Api} from '../components/Api.js';
 
 const editProfileValidation = new FormValidator(selectorList, editProfileForm); //валидация
 editProfileValidation.enableValidation();
 const addCardValidation = new FormValidator(selectorList, addCardForm);
 addCardValidation.enableValidation();
+const changeAvatarValidation = new FormValidator(selectorList, popupAvatarForm);
+changeAvatarValidation.enableValidation();
 
 const functionZoomPopup = new PopupWithImage('.popup-photo'); //увеличение фото
 functionZoomPopup.setEventListeners();
@@ -31,13 +33,16 @@ const card = new Card(data, actualUserId, {handleCardClick,
       .then((data) => {
         card.openLikesInfo(data.likes);
       })
+      .catch(err => {
+          console.log(`Ошибка при удалении лайка: ${err}`)
+      });
     }
     else {
         api.setLike(data)
           .then((data) => {
             card.openLikesInfo(data.likes);
         })
-        .catch(err => {
+          .catch(err => {
           console.log(`Ошибка лайка: ${err}`)
         });
       }
@@ -65,10 +70,17 @@ popupDeleteCard.setEventListeners();
 const placeForm = new PopupWithForm({ //попап добавления карточки
   handleFormSubmit: (data) => {
     placeForm.close();
+    placeForm.loading(true);
     api.addCard(data)
     .then((res) => {
       const newCard = createCard(res);
       addCard.addItem(newCard);
+    })
+    .catch(err => {
+      console.log(`Ошибка при добавлении карточки: ${err}`)
+    })
+    .finally(() => {
+      placeForm.loading(false);
     })
     }
   },
@@ -81,13 +93,17 @@ popupAvatarButton.addEventListener('click', () => {
 });
 const popupAvatarUser = new PopupWithForm({  //попап изменения аватара профиля
   handleFormSubmit: (item) => {
-    popupAvatarUser.close();
+    popupAvatarUser.loading(true);
     api.changeUserAvatar(item)
     .then(result => {    
       userInfo.setUserAvatar(result);
-})
+      popupAvatarUser.close();
+    })
     .catch(err => {
       console.log(`Ошибка в ходе изменения аватара пользователя: ${err}`)
+    })
+    .finally(() => {
+      popupAvatarUser.loading(false);
     })
   }
 }, '.popup-avatar');
@@ -102,10 +118,17 @@ const userInfo = new UserInfo({  //данные профиля
 const profileForm = new PopupWithForm({ //попап изменения информации о профиле
   handleFormSubmit: (data) => {  
     profileForm.close();
+    profileForm.loading(true);
     api.editUserInfo(data)
     .then((res) => {
 userInfo.setUserInfo(res)
     })
+    .catch(err => {
+        console.log(`Ошибка в профиле пользователя: ${err}`);
+      })
+    .finally(() => {
+        profileForm.loading(false);
+      })
     }
   },
   '.popup-edit-profile'
@@ -126,7 +149,6 @@ editButton.addEventListener('click', () => {
 addButton.addEventListener('click', () => {
   placeForm.open();
 });
-
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-42',

@@ -42,22 +42,11 @@ export class Card {
     this._handleDeleteCard(this);
   })
     this._element.querySelector('.gallery-item__like').addEventListener('click', () => {
-      if (this._element.querySelector('.gallery-item__like').classList.contains('gallery-item__like-active')){
-        this._dislike();
-      } else {
-        this._handleLikeClick();
-      }
+      this._handleLikeClick(this);
     });
     this._cardImage.addEventListener('click', () => {
     this._handleCardClick(this._name, this._link);
   })
-  }
-  _listUserLikes(likeList) {
-    const listUserLikes = [];
-    likeList.forEach((like) => {
-      listUserLikes.push(like._id);
-    })
-    return listUserLikes;
   }
   _showTrashButton() {
     if (this._owner._id === this._actualUserId) {
@@ -79,13 +68,10 @@ export class Card {
   updateLikes() {
     this._likesCounter.textContent = String(this._likes.length);
     if (this.isLiked()) {
+
       this._element.querySelector('.gallery-item__like').classList.add('gallery-item__like-active');
     } else {
         this._element.querySelector('.gallery-item__like').classList.remove('gallery-item__like-active');
     }
-  }
-  _dislike() {
-    this._element.querySelector('.gallery-item__like').classList.remove('gallery-item__like-active');
-    this.updateLikes();
   }
 }
