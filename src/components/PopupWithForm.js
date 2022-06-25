@@ -30,7 +30,7 @@ export class PopupWithForm extends Popup {
         if (state) {
             this._buttonText.textContent = 'Сохранение...';
         } else {
-            this._buttonText.textContent = this._buttonText;
+            this._buttonText.textContent = this._buttonText.textContent;
         }
     }
 }
